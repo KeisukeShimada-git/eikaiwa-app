@@ -1,0 +1,10 @@
+backend/node_modules/
+web/node_modules/
+functions/node_modules/
+web/dist/
+backend/.env
+web/.env
+.DS_Store
+DerivedData/
+*.xcuserdata/
+*.xcuserstate
