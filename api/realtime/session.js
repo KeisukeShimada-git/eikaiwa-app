@@ -55,10 +55,12 @@ export default async function handler(req, res) {
 
     const answerSdp = await response.text();
     if (!response.ok) {
-      return res.status(response.status).type("application/json").send(answerSdp);
+      res.setHeader("Content-Type", "application/json");
+      return res.status(response.status).send(answerSdp);
     }
 
-    return res.status(200).type("application/sdp").send(answerSdp);
+    res.setHeader("Content-Type", "application/sdp");
+    return res.status(200).send(answerSdp);
   } catch (error) {
     console.error(error);
     return res.status(500).json({ error: error.message || "Internal Server Error" });
